@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dish Pong</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Dish Pong</h1>
+<p class="lede">A small network of simulated neurons learns Pong the way Cortical Labs’ CL1 brain cells do. Nobody tells it what to do. A hit sends back a calm, steady beat. A miss sends back a burst of random noise. Watch it get better.</p>
+<div class="grid">
+ <section class="card" aria-label="Game">
+  <canvas id="game" width="640" height="400" aria-label="Pong game played by the neurons"></canvas>
+  <div class="stats">
+   <div class="stat"><b id="sRal">0</b><span>rallies</span></div>
+   <div class="stat"><b id="s20">–</b><span>hits, last 20</span></div>
+   <div class="stat"><b id="s100">–</b><span>hits, last 100</span></div>
+   <div class="stat" style="flex:1;min-width:150px"><b id="status">Playing</b><span>what the cells feel</span></div>
+  </div>
+  <div class="bar">
+   <span class="seg" role="group" aria-label="Speed">
+    <button data-speed="1" aria-pressed="true">1×</button><button data-speed="5" aria-pressed="false">5×</button><button data-speed="25" aria-pressed="false">25×</button><button data-speed="100" aria-pressed="false">100×</button>
+   </span>
+   <button class="solo" id="reset">New brain</button>
+   <button class="solo" id="snd" aria-pressed="false">Sound off</button>
+  </div>
+ </section>
+ <div class="col">
+  <section class="card"><h2>Inside the dish</h2><canvas id="dish" width="340" height="300" aria-label="Neuron activity"></canvas></section>
+  <section class="card"><h2>Is it learning?</h2><canvas id="chart" width="340" height="130" aria-label="Hit rate over time"></canvas></section>
+ </div>
+</div>
+<p class="note">This is a simulation, not living cells. It borrows the idea behind Cortical Labs’ DishBrain and CL1 work: neurons settle into whatever behaviour makes their world predictable. Here, a hit makes the feedback predictable and strengthens the connections that were just active. A miss scrambles them a little, and a bigger miss scrambles them more.</p>
+</main>
+<script src="src/dish.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>
